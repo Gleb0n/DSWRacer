@@ -15,11 +15,11 @@ MonoBehaviour:
   wheelRadious: 0.371
   springStrength: 110000
   springDamper: 2000
-  tireMass: 60
-  tireGripFactor: 0.5
+  tireMass: 30
+  tireGripFactor: 1
   maxSteeringAngle: 30
   turningSpeed: 1
-  carTopSpeed: 50
+  carTopSpeed: 100
   availableBrakeTorque: 0.07
   motorTorque: 2000
   powerCurve:

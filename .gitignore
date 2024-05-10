@@ -66,3 +66,5 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+Assets/AssetStoreContent/Pure Poly/Free Low Poly Nature Pack/Read Me.pdf
+/Assets/AssetStoreContent
