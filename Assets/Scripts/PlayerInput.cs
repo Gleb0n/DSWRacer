@@ -7,11 +7,13 @@ public class PlayerInput : MonoBehaviour
     private InputAction move;
     private InputAction stopMove;
     private PlayerInputAction playerControls;
-    private Vector2 moveDirection;
-    private float brakeTorque;
 
-    public Vector2 MoveDirection => moveDirection;
-    public float BrakeTorque => brakeTorque;
+    private Vector2 moveDirection;
+    private float stop;
+
+    public float verticalDirection => moveDirection.y;
+    public float horizontalDirection => moveDirection.x;
+    public float brakeTorque => stop;
     private void Awake()
     {
         playerControls = new PlayerInputAction();
@@ -28,14 +30,10 @@ public class PlayerInput : MonoBehaviour
         move.Disable();
         stopMove.Disable();
     }
-    private void Inputs()
-    {
-        moveDirection = move.ReadValue<Vector2>();
-
-        brakeTorque = stopMove.ReadValue<float>();
-    }
     private void Update()
     {
-        Inputs();
+        moveDirection = move.ReadValue<Vector2>();
+        stop = stopMove.ReadValue<float>();
     }
+
 }

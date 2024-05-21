@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 803e6348cb5512845ba83b9ac1f14365, type: 3}
-  m_Name: My Car Stats
+  m_Name: ForwardWheels
   m_EditorClassIdentifier: 
   wheelRadious: 0.371
   springStrength: 110000
   springDamper: 2000
-  tireMass: 30
-  tireGripFactor: 1
+  tireMass: 60
+  tireGripFactor: 0.31
   maxSteeringAngle: 30
   turningSpeed: 1
   carTopSpeed: 100
-  availableBrakeTorque: 0.07
-  motorTorque: 2000
+  availableBrakeTorque: 0.147
+  motorTorque: 5000
   powerCurve:
     serializedVersion: 2
     m_Curve:
@@ -64,3 +64,4 @@ MonoBehaviour:
     m_PreInfinity: 0
     m_PostInfinity: 2
     m_RotationOrder: 4
+  drag: 10

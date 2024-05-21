@@ -3,6 +3,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Car Stats")]
 public class CarStats : ScriptableObject
 {
+    
+
     public float wheelRadious;
 
     //Suspension parameters
