@@ -1,11 +1,12 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 
 public class WheelHandler : MonoBehaviour
 {
 
-    private Transform wheelTransform;
+
     private Rigidbody carRigidbody;
     private float suspensionRestDist;
 
@@ -30,23 +31,24 @@ public class WheelHandler : MonoBehaviour
     public float motorTorque { get; set; }
     public float brakeForce { get; set; }
     public float steerAngle { get; set; }
-
+    public float yRotationAngle { get; private set; }
     RaycastHit tireHit;
 
     private void Awake()
     {
-        wheelTransform = GetComponent<Transform>();
+
         carRigidbody = GetComponentInParent<Rigidbody>();
         suspensionRestDist = wheelRadious;
     }
-    public void FixedUpdate()
+    private void FixedUpdate()
     {   
-        bool rayDidHit = Physics.Raycast(wheelTransform.position, Vector3.down, out tireHit);
+        bool rayDidHit = Physics.Raycast(transform.position, Vector3.down, out tireHit);
         if (rayDidHit)
         {
             ApplySuspension();
 
             ApplySteering();
+            UpdateSteering();
 
             if (brakeForce > 0f)
             {
@@ -61,31 +63,30 @@ public class WheelHandler : MonoBehaviour
     }
     private void ApplySuspension()
     {
-        Vector3 springDir = carRigidbody.transform.up;
+        Vector3 springDir = transform.up;
 
-        Vector3 tireWorldVel = carRigidbody.GetPointVelocity(wheelTransform.position);
+        Vector3 tireWorldVel = carRigidbody.GetPointVelocity(transform.position);
         float offset = suspensionRestDist - tireHit.distance;
 
         float vel = Vector3.Dot(springDir, tireWorldVel);
 
         float force = (offset * springStrength) - (vel * springDamper);
 
-        carRigidbody.AddForceAtPosition(springDir * force, wheelTransform.position);
+        carRigidbody.AddForceAtPosition(springDir * force, transform.position);
 
     }
     private void ApplySteering()
     {
-        Vector3 steeringDir = wheelTransform.right;
+        Vector3 steeringDir = transform.right;
 
         carRigidbody.AddForceAtPosition(steeringDir * tireMass * 
                                         GetVelocityChange(steeringDir, tireGripFactor),
-                                        wheelTransform.position);
+                                        transform.position);
     }
     private void ApplyAcceleration()
     {
-        Vector3 accelDir = carRigidbody.transform.forward;
+        Vector3 accelDir = transform.forward;
         
-
         float carSpeed = Vector3.Dot(transform.root.forward, carRigidbody.velocity);
 
         float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(carSpeed) / carTopSpeed);
@@ -95,46 +96,44 @@ public class WheelHandler : MonoBehaviour
         if (motorTorque > 0)
         {
             carRigidbody.AddForceAtPosition(accelDir * availableTorque,
-                                            wheelTransform.position);
+                                            transform.position);
         }
         else if (motorTorque < 0)
         {
             carRigidbody.AddForceAtPosition(accelDir * availableTorque * 0.5f,
-                                            wheelTransform.position);
+                                            transform.position);
         }
         else
         {
             //TODO: Serialize magic values
-            carRigidbody.AddForceAtPosition(accelDir * GetVelocityChange(accelDir, 0.1f) * 10f, wheelTransform.position);
+            carRigidbody.AddForceAtPosition(accelDir * GetVelocityChange(accelDir, 0.1f) * 10f, transform.position);
         }
         
     }
     private void BrakeTorque()
     {
 
-        Vector3 brakeDir = wheelTransform.forward;
+        Vector3 brakeDir = transform.forward;
 
         carRigidbody.AddForceAtPosition(brakeDir * brakeForce * 
                                         GetVelocityChange(brakeDir, availableBrakeTorque),
-                                        wheelTransform.position);
+                                        transform.position);
     }
 
-    public void UpdateVisualRotation(bool isTurning)
+    private float GetVelocityChange(Vector3 direction, float changeFactor)
     {
+        
+        Vector3 tireWorldVel = carRigidbody.GetPointVelocity(transform.position);
 
-        float yRotationAngle = 0f;
-        float xRotationAngle = CalculatePitchAngle();
-        if (isTurning)
-        {
-            yRotationAngle = CalculateYawAngle();
-        }
+        float steeringVel = Vector3.Dot(direction, tireWorldVel);
 
-        wheelTransform.localRotation = Quaternion.Euler(new Vector3(xRotationAngle, yRotationAngle, 0f));
+        float desiredVelChange = -steeringVel * changeFactor;
 
+        return desiredVelChange / Time.deltaTime;
 
     }
-    private float yRotationAngle;
-    private float CalculateYawAngle()
+
+    private void UpdateSteering()
     {
         float currentSteerAngle = yRotationAngle;
         if (steerAngle > 0f && currentSteerAngle <= steerAngle)
@@ -161,35 +160,8 @@ public class WheelHandler : MonoBehaviour
                 yRotationAngle = 0f;
             }
         }
-
-        return yRotationAngle;
-    }
-    private float xRotation;
-    private float CalculatePitchAngle()
-    {
-
-        Vector3 carVelocity = carRigidbody.velocity;
-        float forwardSpeed = Vector3.Dot(carVelocity, transform.root.forward);
-        xRotation += (float) forwardSpeed * 0.1f * Time.deltaTime * Mathf.Rad2Deg;
-        if (xRotation >= 360f)
-        {
-            xRotation -= 360f;
-        }
-        return xRotation;
-
+        transform.localRotation = Quaternion.Euler(0f, yRotationAngle, 0f);
     }
 
-    private float GetVelocityChange(Vector3 direction, float changeFactor)
-    {
-        
-        Vector3 tireWorldVel = carRigidbody.GetPointVelocity(wheelTransform.position);
-
-        float steeringVel = Vector3.Dot(direction, tireWorldVel);
-
-        float desiredVelChange = -steeringVel * changeFactor;
-
-        return desiredVelChange / Time.deltaTime;
-
-    }
 
 }
