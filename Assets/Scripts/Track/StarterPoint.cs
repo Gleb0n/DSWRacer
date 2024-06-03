@@ -3,13 +3,14 @@ using UnityEngine;
 public class StarterPoint : MonoBehaviour
 {
     [SerializeField] private CarController carController;
+    [SerializeField] private LapTimer lapTimer; 
 
     private void Awake()
     {
-        //TODO: make function work for multiple players
+        // TODO: make function work for multiple players
         if (carController == null)
         {
-            Debug.Log("Car doestn set");
+            Debug.Log("Car not set");
         }
         else
         {
@@ -17,7 +18,11 @@ public class StarterPoint : MonoBehaviour
         }
     }
 
-    
-
-    
+    private void Start()
+    {
+        if (lapTimer != null && !lapTimer.startFromCheckpoint)
+        {
+            lapTimer.StartRace(); // start
+        }
+    }
 }

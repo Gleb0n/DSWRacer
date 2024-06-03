@@ -14,13 +14,15 @@ public class Car : MonoBehaviour
     [SerializeField] protected Transform backRightWheelTransform;
 
     [SerializeField] protected float _motorTorque = 4000f, _brakeForce = 30f, _steerAngle = 30f;
-    private WheelHandler[] wheels = new WheelHandler[4];
-    private Transform[] wheelsTransform = new Transform[4];
+    public WheelHandler[] wheels { get; set; } = new WheelHandler[4];
+    public Transform[] wheelsTransform { get; set; } = new Transform[4];
 
     protected Rigidbody carRigidbody;
 
     private float xRotation;
     private float yRotation;
+
+    public bool ready { get; set; } = false;
 
     protected void SetUpWheels()
     {
@@ -45,7 +47,7 @@ public class Car : MonoBehaviour
             wheelsTransform[1] = frontRightWheelTransform;
             wheelsTransform[2] = backLeftWheelTransform;
             wheelsTransform[3] = backRightWheelTransform;
-
+            ready = true;
         }
 
     }
