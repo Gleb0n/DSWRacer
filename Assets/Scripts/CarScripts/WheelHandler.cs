@@ -33,14 +33,10 @@ public class WheelHandler : MonoBehaviour
     public float steerAngle { get; set; }
     public float yRotationAngle { get; private set; }
     RaycastHit tireHit;
-    public float availableTorque { get; private set; }
-    public float carSpeed { get; private set; }
-
-    
 
     private void Awake()
     {
-        
+
         carRigidbody = GetComponentInParent<Rigidbody>();
         suspensionRestDist = wheelRadious;
     }
@@ -53,10 +49,17 @@ public class WheelHandler : MonoBehaviour
 
             ApplySteering();
             UpdateSteering();
-            ApplyAcceleration();
+
+            if (brakeForce > 0f)
+            {
+                BrakeTorque();
+            }
+            else
+            {
+                ApplyAcceleration();
+            }
 
         }
-       
     }
     private void ApplySuspension()
     {
@@ -75,6 +78,7 @@ public class WheelHandler : MonoBehaviour
     private void ApplySteering()
     {
         Vector3 steeringDir = transform.right;
+
         carRigidbody.AddForceAtPosition(steeringDir * tireMass * 
                                         GetVelocityChange(steeringDir, tireGripFactor),
                                         transform.position);
@@ -83,37 +87,37 @@ public class WheelHandler : MonoBehaviour
     {
         Vector3 accelDir = transform.forward;
         
-        carSpeed = Vector3.Dot(transform.root.forward, carRigidbody.velocity);
+        float carSpeed = Vector3.Dot(transform.root.forward, carRigidbody.velocity);
 
         float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(carSpeed) / carTopSpeed);
-        availableTorque = powerCurve.Evaluate(normalizedSpeed) * motorTorque;
-        if (! float.IsNaN(availableTorque) && (carSpeed > -20 || availableTorque > 0))
+
+        float availableTorque = powerCurve.Evaluate(normalizedSpeed) * motorTorque;
+
+        if (motorTorque > 0)
         {
-            float accelFactor = 1f;
-            if (carSpeed < 0 && availableTorque < 0)
-            {
-                accelFactor = 0.3f;
-            }
-            else if (carSpeed < 0 && availableTorque > 0)
-            {
-                accelFactor = 1.5f;
-            }
-            else if (motorTorque > 0)
-            {
-                accelFactor = 1f;
-            }
-            else if (motorTorque < 0)
-            {
-                accelFactor = 2.8f;
-            }
-            Vector3 force = accelDir * availableTorque * accelFactor;
-            carRigidbody.AddForceAtPosition(force, transform.position);
+            carRigidbody.AddForceAtPosition(accelDir * availableTorque,
+                                            transform.position);
+        }
+        else if (motorTorque < 0)
+        {
+            carRigidbody.AddForceAtPosition(accelDir * availableTorque * 0.5f,
+                                            transform.position);
         }
         else
         {
-            availableTorque = 0;
+            //TODO: Serialize magic values
+            carRigidbody.AddForceAtPosition(accelDir * GetVelocityChange(accelDir, 0.1f) * 10f, transform.position);
         }
         
+    }
+    private void BrakeTorque()
+    {
+
+        Vector3 brakeDir = transform.forward;
+
+        carRigidbody.AddForceAtPosition(brakeDir * brakeForce * 
+                                        GetVelocityChange(brakeDir, availableBrakeTorque),
+                                        transform.position);
     }
 
     private float GetVelocityChange(Vector3 direction, float changeFactor)
@@ -158,5 +162,6 @@ public class WheelHandler : MonoBehaviour
         }
         transform.localRotation = Quaternion.Euler(0f, yRotationAngle, 0f);
     }
+
 
 }
