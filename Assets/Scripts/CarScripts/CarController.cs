@@ -21,7 +21,7 @@ public class CarController : Car
 
         ApplyTorque(playerInput.verticalDirection, _motorTorque);
 
-        BrakeTorque(playerInput.brakeTorque, _brakeForce);
+        BrakeTorque(playerInput.brakeTorque);
 
         UpdateRotation(playerInput.horizontalDirection, _steerAngle);
 

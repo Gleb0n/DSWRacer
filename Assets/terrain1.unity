@@ -299,13 +299,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Free Racing Car Blue Variant (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4591691155392393144, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591691155392393144, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6854478040411908815, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6854478040411908815, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 192
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854478040411908815, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854478040411908815, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
       propertyPath: m_LayerOverridePriority
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7117656928720560041, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
       propertyPath: tireMass
@@ -418,6 +434,10 @@ PrefabInstance:
     - target: {fileID: 8447875150869971845, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
       propertyPath: powerCurve.m_Curve.Array.data[1].outWeight
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182495883619372212, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_Constraints
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -600,13 +620,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Free Racing Car Blue Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4591691155392393144, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591691155392393144, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6854478040411908815, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6854478040411908815, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 192
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854478040411908815, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854478040411908815, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
       propertyPath: m_LayerOverridePriority
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7117656928720560041, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
       propertyPath: tireMass
@@ -719,6 +755,10 @@ PrefabInstance:
     - target: {fileID: 8447875150869971845, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
       propertyPath: powerCurve.m_Curve.Array.data[1].outWeight
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182495883619372212, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_Constraints
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -793,112 +833,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackCheckpoints: {fileID: 857606900}
   numberOfCircles: 3
---- !u!1 &158142194
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 158142198}
-  - component: {fileID: 158142197}
-  - component: {fileID: 158142196}
-  - component: {fileID: 158142195}
-  m_Layer: 0
-  m_Name: Quad
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!64 &158142195
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 158142194}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &158142196
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 158142194}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 27593d9967611354199307d3c00ae66a, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &158142197
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 158142194}
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &158142198
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 158142194}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -193.4, y: 0, z: 0}
-  m_LocalScale: {x: 400, y: 400, z: 400}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &242050177
 GameObject:
   m_ObjectHideFlags: 0
@@ -1693,13 +1627,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Free Racing Car Blue Variant (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4591691155392393144, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591691155392393144, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6854478040411908815, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6854478040411908815, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 192
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854478040411908815, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854478040411908815, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
       propertyPath: m_LayerOverridePriority
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7117656928720560041, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
       propertyPath: tireMass
@@ -1812,6 +1762,10 @@ PrefabInstance:
     - target: {fileID: 8447875150869971845, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
       propertyPath: powerCurve.m_Curve.Array.data[1].outWeight
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182495883619372212, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_Constraints
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2092,6 +2046,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackCheckpoints: {fileID: 857606900}
   finishPoint: {fileID: 139272005}
+--- !u!1 &1010505029
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1010505031}
+  - component: {fileID: 1010505030}
+  m_Layer: 0
+  m_Name: Start
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1010505030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010505029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bcd37a0954525f4980ab58bc6b819e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carController: {fileID: -7793661062571958582, guid: 98c57f100a7d7684dba02b8725bbc5d8, type: 3}
+--- !u!4 &1010505031
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010505029}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -73.37, y: 1.72, z: -337.444}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1031738225
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2507,98 +2506,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3282774722669022716, guid: b8e73a83a838408488fbe6a1d12d31fa, type: 3}
   m_PrefabInstance: {fileID: 1218884344}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1356908138
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1356908141}
-  - component: {fileID: 1356908140}
-  - component: {fileID: 1356908139}
-  m_Layer: 0
-  m_Name: Terrain
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
---- !u!154 &1356908139
-TerrainCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1356908138}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_TerrainData: {fileID: 15600000, guid: 07c620ccbb1398a45ba67c7fb5449ef6, type: 2}
-  m_EnableTreeColliders: 1
---- !u!218 &1356908140
-Terrain:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1356908138}
-  m_Enabled: 1
-  serializedVersion: 6
-  m_TerrainData: {fileID: 15600000, guid: 07c620ccbb1398a45ba67c7fb5449ef6, type: 2}
-  m_TreeDistance: 5000
-  m_TreeBillboardDistance: 50
-  m_TreeCrossFadeLength: 5
-  m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 80
-  m_DetailObjectDensity: 1
-  m_HeightmapPixelError: 5
-  m_SplatMapDistance: 1000
-  m_HeightmapMaximumLOD: 0
-  m_ShadowCastingMode: 2
-  m_DrawHeightmap: 1
-  m_DrawInstanced: 0
-  m_DrawTreesAndFoliage: 1
-  m_StaticShadowCaster: 0
-  m_IgnoreQualitySettings: 0
-  m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
-  m_BakeLightProbesForTrees: 1
-  m_PreserveTreePrototypeLayers: 0
-  m_DeringLightProbesForTrees: 1
-  m_ReceiveGI: 1
-  m_ScaleInLightmap: 0.0256
-  m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
-  m_GroupingID: 0
-  m_RenderingLayerMask: 1
-  m_AllowAutoConnect: 1
-  m_EnableHeightmapRayTracing: 1
-  m_EnableTreesAndDetailsRayTracing: 0
-  m_TreeMotionVectorModeOverride: 3
---- !u!4 &1356908141
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1356908138}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -100, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1427399034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2834,7 +2741,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3282774722669022716, guid: b8e73a83a838408488fbe6a1d12d31fa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.3
+      value: -17.3
       objectReference: {fileID: 0}
     - target: {fileID: 3282774722669022716, guid: b8e73a83a838408488fbe6a1d12d31fa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3202,13 +3109,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Free Racing Car Blue Variant (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4591691155392393144, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591691155392393144, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6854478040411908815, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6854478040411908815, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 192
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854478040411908815, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854478040411908815, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
       propertyPath: m_LayerOverridePriority
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7117656928720560041, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
       propertyPath: tireMass
@@ -3321,69 +3244,16 @@ PrefabInstance:
     - target: {fileID: 8447875150869971845, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
       propertyPath: powerCurve.m_Curve.Array.data[1].outWeight
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182495883619372212, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_Constraints
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
---- !u!1001 &1596782515
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 33538749733570355, guid: 98c57f100a7d7684dba02b8725bbc5d8, type: 3}
-      propertyPath: m_Name
-      value: Free Racing Car Purple Variant
-      objectReference: {fileID: 0}
-    - target: {fileID: 809794695439113609, guid: 98c57f100a7d7684dba02b8725bbc5d8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -59.477707
-      objectReference: {fileID: 0}
-    - target: {fileID: 809794695439113609, guid: 98c57f100a7d7684dba02b8725bbc5d8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.69999695
-      objectReference: {fileID: 0}
-    - target: {fileID: 809794695439113609, guid: 98c57f100a7d7684dba02b8725bbc5d8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -332.78568
-      objectReference: {fileID: 0}
-    - target: {fileID: 809794695439113609, guid: 98c57f100a7d7684dba02b8725bbc5d8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 809794695439113609, guid: 98c57f100a7d7684dba02b8725bbc5d8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 809794695439113609, guid: 98c57f100a7d7684dba02b8725bbc5d8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 809794695439113609, guid: 98c57f100a7d7684dba02b8725bbc5d8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 809794695439113609, guid: 98c57f100a7d7684dba02b8725bbc5d8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 809794695439113609, guid: 98c57f100a7d7684dba02b8725bbc5d8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 809794695439113609, guid: 98c57f100a7d7684dba02b8725bbc5d8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 98c57f100a7d7684dba02b8725bbc5d8, type: 3}
 --- !u!1001 &1847908144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3700,13 +3570,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Free Racing Car Blue Variant (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4591691155392393144, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591691155392393144, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6854478040411908815, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6854478040411908815, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 192
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854478040411908815, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854478040411908815, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
       propertyPath: m_LayerOverridePriority
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7117656928720560041, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
       propertyPath: tireMass
@@ -3819,6 +3705,10 @@ PrefabInstance:
     - target: {fileID: 8447875150869971845, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
       propertyPath: powerCurve.m_Curve.Array.data[1].outWeight
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182495883619372212, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_Constraints
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4235,13 +4125,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Free Racing Car Blue Variant (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4591691155392393144, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591691155392393144, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6854478040411908815, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6854478040411908815, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 192
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854478040411908815, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854478040411908815, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
       propertyPath: m_LayerOverridePriority
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7117656928720560041, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
       propertyPath: tireMass
@@ -4354,6 +4260,10 @@ PrefabInstance:
     - target: {fileID: 8447875150869971845, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
       propertyPath: powerCurve.m_Curve.Array.data[1].outWeight
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182495883619372212, guid: a9cbfe7195f75844aa7ec0619ca7616f, type: 3}
+      propertyPath: m_Constraints
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4715,8 +4625,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 2005872655}
-  - {fileID: 1356908141}
-  - {fileID: 158142198}
   - {fileID: 497130816}
   - {fileID: 857606899}
   - {fileID: 591767146}
@@ -4728,4 +4636,4 @@ SceneRoots:
   - {fileID: 2001047989}
   - {fileID: 3238380}
   - {fileID: 1569886058}
-  - {fileID: 1596782515}
+  - {fileID: 1010505031}

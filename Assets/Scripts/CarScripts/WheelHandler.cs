@@ -50,14 +50,8 @@ public class WheelHandler : MonoBehaviour
             ApplySteering();
             UpdateSteering();
 
-            if (brakeForce > 0f)
-            {
-                BrakeTorque();
-            }
-            else
-            {
-                ApplyAcceleration();
-            }
+            ApplyAcceleration();
+
 
         }
     }
@@ -110,7 +104,7 @@ public class WheelHandler : MonoBehaviour
         }
         
     }
-    private void BrakeTorque()
+    public void BrakeTorque()
     {
 
         Vector3 brakeDir = transform.forward;

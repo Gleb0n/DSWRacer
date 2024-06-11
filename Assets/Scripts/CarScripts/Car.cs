@@ -13,7 +13,7 @@ public class Car : MonoBehaviour
     [SerializeField] protected Transform backLeftWheelTransform;
     [SerializeField] protected Transform backRightWheelTransform;
 
-    [SerializeField] protected float _motorTorque = 4000f, _brakeForce = 30f, _steerAngle = 30f;
+    [SerializeField] public float _motorTorque = 4000f, _brakeForce = 30f, _steerAngle = 30f;
     private WheelHandler[] wheels = new WheelHandler[4];
     private Transform[] wheelsTransform = new Transform[4];
 
@@ -50,7 +50,7 @@ public class Car : MonoBehaviour
 
     }
 
-    protected void ApplyTorque(float torqueDirection, float motorTorque)
+    public void ApplyTorque(float torqueDirection, float motorTorque)
     {
         for(int i = 0; i < wheels.Length; i++)
         {
@@ -85,19 +85,21 @@ public class Car : MonoBehaviour
             wheelsTransform[i].localRotation = Quaternion.Euler(xRotation, yRotation, 0f);             
         }
     }
-    public void BrakeTorque(float brakeInput, float brakeForce)
+    public void BrakeTorque(float brakeInput)
     {
         for (int i = 0; i < wheels.Length; i++)
         {
             if (brakeInput > 0)
             {
-                wheels[i].brakeForce = brakeForce;
+                wheels[i].BrakeTorque();
+                wheels[i].brakeForce = _brakeForce;
             }
             else
             {
                 wheels[i].brakeForce = 0;
             }
         }
+        
     }
 
 

@@ -74,4 +74,14 @@ public class TrackCheckpoints : MonoBehaviour
     {
         return listOfCheckpoints;
     }
+    public static float CalculateAngle(CheckpointSingle currentCheckpoint, CheckpointSingle nextCheckpoint)
+    {
+        Transform currentCheckpointTransform = currentCheckpoint.gameObject.transform;
+        Transform nextCheckpointTransform = nextCheckpoint.gameObject.transform;
+        Vector3 nextCheckpointDirection = currentCheckpointTransform.position - nextCheckpointTransform.position;
+
+        float dotProduct = Vector3.Dot(currentCheckpointTransform.position, nextCheckpointDirection);
+        float angleBetweenCheckpoints = Mathf.Acos(dotProduct / (currentCheckpointTransform.forward.magnitude * nextCheckpointDirection.magnitude));
+        return angleBetweenCheckpoints * Mathf.Rad2Deg;
+    }
 }

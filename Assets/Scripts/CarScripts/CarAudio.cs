@@ -4,32 +4,40 @@ using UnityEngine;
 
 public class CarAudio : MonoBehaviour
 {
-    AudioSource engineSound;
-    CarController controller;
+    [SerializeField] private float maxPith;
+    [SerializeField] private float minPith;
+    [SerializeField] private float minSpeed;
+    [SerializeField] private float maxSpeed;
 
-    float pithFromCar;
-    float minPith = 0.75f;
 
+    private AudioSource engineSound;
+    private Rigidbody carRigidbody;
+    private float pithFromCar;
+    private float currentSpeed;
 
-    void Start()
+    private void Start()
     {
         engineSound = GetComponent<AudioSource>();
-        controller = GetComponent<CarController>();
+        carRigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        float normalizedCarSpeed = Mathf.Clamp(Mathf.Abs(50f ) / 50f * 3, 0f, 3f);
-        pithFromCar = normalizedCarSpeed;
+        currentSpeed = carRigidbody.velocity.magnitude;
+        pithFromCar = currentSpeed / 50f;
 
-        if ( pithFromCar < minPith )
+        if (currentSpeed < minSpeed)
         {
             engineSound.pitch = minPith;
         }
+        else if (currentSpeed > minSpeed &&  currentSpeed < maxSpeed)
+        {
+            engineSound.pitch = minPith + pithFromCar;
+        }
         else
         {
-            engineSound.pitch = pithFromCar;
+            engineSound.pitch = maxPith + pithFromCar;
         }
         
     }

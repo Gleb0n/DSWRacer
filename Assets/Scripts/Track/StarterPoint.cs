@@ -14,6 +14,7 @@ public class StarterPoint : MonoBehaviour
         else
         {
             Instantiate(carController);
+            carController.transform.position = this.transform.position;
         }
     }
 
