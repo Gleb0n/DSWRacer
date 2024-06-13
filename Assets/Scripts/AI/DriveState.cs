@@ -30,7 +30,6 @@ public class DriveState : BaseState
 
         _carAI.ApplyTorque(Mathf.Abs(normalizedDirection.z), _carAI._motorTorque);
         _carAI.UpdateRotation(lookAtTracker, _carAI._steerAngle);
-        Debug.Log("Drive");
         CheckSwitch();
     }
 

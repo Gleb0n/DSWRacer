@@ -16,6 +16,7 @@ public class StarterPoint : MonoBehaviour
         {
             Instantiate(carController);
             carController.transform.position = this.transform.position;
+            carController.transform.rotation = this.transform.rotation;
         }
     }
 

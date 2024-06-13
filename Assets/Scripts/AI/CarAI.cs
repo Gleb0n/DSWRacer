@@ -32,6 +32,7 @@ public class CarAI : Car, IStationStateSwitcher
 
         _stats.tracker = GameObject.CreatePrimitive(PrimitiveType.Cube);
         Destroy(_stats.tracker.GetComponent<Collider>());
+        Destroy(_stats.tracker.GetComponent<MeshRenderer>());
 
         _stats.tracker.transform.position = this.transform.position;
         _stats.tracker.transform.rotation = this.transform.rotation;   
@@ -79,7 +80,6 @@ public class CarAI : Car, IStationStateSwitcher
     private void FollowTracker()
     {
         currentState.FollowTracker();
-        Debug.Log(_brakeForce);
     }
 
     public bool IsWaitingForCar(float distanceToCar)

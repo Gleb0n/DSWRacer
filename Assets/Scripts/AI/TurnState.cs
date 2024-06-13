@@ -31,6 +31,7 @@ public class TurnState : BaseState
 
         _carAI.ApplyTorque(Mathf.Abs(normalizedDirection.z), _carAI._motorTorque * 0.5f);
         _carAI.UpdateRotation(lookAtTracker, _carAI._steerAngle);
+        CheckSwitch();
     }
 
     private void CheckSwitch()

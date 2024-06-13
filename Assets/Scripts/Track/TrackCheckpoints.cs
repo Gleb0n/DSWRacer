@@ -5,11 +5,10 @@ using System;
 
 public class TrackCheckpoints : MonoBehaviour
 {
-    private List<Transform> carTransformList = new List<Transform>();
+    private Transform carTransform;
 
     private List<CheckpointSingle> listOfCheckpoints;
-    private List<int> nextCheckpointSingleIndexList;
-
+    private int nextCheckpointSingleIndex;
     public event Action OnCheckpointPassed;
     public event Action OnLastCheckpointPassed;
 
@@ -17,10 +16,7 @@ public class TrackCheckpoints : MonoBehaviour
     {
         listOfCheckpoints = new List<CheckpointSingle>();
 
-        FindObjectsOfType<CarController>().ToList().ForEach(car =>
-        {
-            carTransformList.Add(car.GetComponent<Transform>());
-        });
+        carTransform = FindObjectOfType<Car>().transform;
 
         Transform checkpointsTransform = transform.Find("Checkpoints");
         foreach (Transform checkpointSingleTransform in checkpointsTransform)
@@ -29,36 +25,28 @@ public class TrackCheckpoints : MonoBehaviour
             checkpointSingle.SetTrackCheckpoint(this);
             listOfCheckpoints.Add(checkpointSingle);
         }
-
-        nextCheckpointSingleIndexList = new List<int>();
-        foreach (Transform carTransform in carTransformList)
-        {
-            nextCheckpointSingleIndexList.Add(0);     
-        }
-
+        nextCheckpointSingleIndex = 0;
 
     }
     public void CarThroughCheckpoint(CheckpointSingle checkpointSingle, Transform carTransform)
     {
 
-        int nextCheckpointSingleIndex = nextCheckpointSingleIndexList[carTransformList.IndexOf(carTransform)];
-        int currentCheckpointSingleIndex = nextCheckpointSingleIndex - 1;
         if (listOfCheckpoints.IndexOf(checkpointSingle) == nextCheckpointSingleIndex)
         {
-            nextCheckpointSingleIndexList[carTransformList.IndexOf(carTransform)] = (nextCheckpointSingleIndex + 1) % listOfCheckpoints.Count;
+            nextCheckpointSingleIndex = (nextCheckpointSingleIndex + 1) % listOfCheckpoints.Count;
             OnCheckpointPassed?.Invoke();
         }
         else
         {
-            if (currentCheckpointSingleIndex >= 0)
-            {
-                carTransform.position = listOfCheckpoints[currentCheckpointSingleIndex].transform.position;
-                carTransform.rotation = listOfCheckpoints[currentCheckpointSingleIndex].transform.rotation;
-            }
-            else
+            if (nextCheckpointSingleIndex == 0)
             {
                 carTransform.position = listOfCheckpoints[0].transform.position;
                 carTransform.rotation = listOfCheckpoints[0].transform.rotation;
+            }
+            else
+            {
+                carTransform.position = listOfCheckpoints[nextCheckpointSingleIndex - 1].transform.position;
+                carTransform.rotation = listOfCheckpoints[nextCheckpointSingleIndex - 1].transform.rotation;
             }
         }
 

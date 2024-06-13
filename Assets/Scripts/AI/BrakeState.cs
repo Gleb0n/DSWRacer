@@ -24,7 +24,7 @@ public class BrakeState : BaseState
 
         _carAI.BrakeTorque(Mathf.Abs(normalizedDirection.z));
         _carAI.UpdateRotation(lookAtTracker, _carAI._steerAngle);
-        Debug.Log("Brake");
+
         CheckSwitch();
     }
 
